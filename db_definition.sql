@@ -26,6 +26,12 @@ CREATE TABLE  Writter (
      website VARCHAR(255) 
 );
 
+-- Table: Genres
+CREATE TABLE Genres (
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    genre_name VARCHAR(100) NOT NULL
+);
+
 -- Table: Movies
 CREATE TABLE Movies (
     movie_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,12 +44,6 @@ CREATE TABLE Movies (
     genre_id INT NOT NULL,
     FOREIGN KEY (director_id) REFERENCES Directors(director_id),
     FOREIGN KEY (genre_id) REFERENCES Genres(genre_id)
-);
-
--- Table: Genres
-CREATE TABLE Genres (
-    genre_id INT AUTO_INCREMENT PRIMARY KEY,
-    genre_name VARCHAR(100) NOT NULL
 );
 
 -- Table: Actors
