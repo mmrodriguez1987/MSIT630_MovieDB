@@ -1,6 +1,4 @@
 
-/* DATABASE INSERTS FOR GENERATE DATA*/
-
 -- Insert Directors
 INSERT INTO Directors (first_name, last_name, date_of_birth, overview, website) VALUES
 ('John', 'Smith', '1960-05-10', 'John Smith is known for his impactful storytelling in independent cinema.', 'http://www.johnsmithfilms.com'),
@@ -53,8 +51,8 @@ INSERT INTO Directors (first_name, last_name, date_of_birth, overview, website) 
 ('Daniel', 'Cruz', '1976-10-27', 'Daniel Cruz has worked on numerous international film collaborations.', 'http://www.danielcruzfilms.com'),
 ('Mia', 'Mitchell', '1987-05-11', 'Mia Mitchells work is known for its emotional depth.', 'http://www.miamitchellfilms.com');
 
--- Insert Writters
-INSERT INTO Writter (first_name, last_name, date_of_birth, overview, website) VALUES
+-- Insert Writers
+INSERT INTO Writer (first_name, last_name, date_of_birth, overview, website) VALUES
 ('John', 'Thompson', '1970-01-15', 'John Thompson is an accomplished author known for his historical novels.', 'http://www.johnthompsonwriter.com'),
 ('Emily', 'Jackson', '1983-03-22', 'Emily Jackson specializes in contemporary fiction that explores modern relationships.', 'http://www.emilyjacksonwrites.com'),
 ('Michael', 'Stewart', '1965-05-12', 'Michael Stewart has written several best-selling thrillers.', 'http://www.michaelstewartbooks.com'),
@@ -105,7 +103,7 @@ INSERT INTO Writter (first_name, last_name, date_of_birth, overview, website) VA
 ('Grace', 'Martinez', '1983-05-04', 'Grace Martinez is a bilingual writer of novels and short stories.', 'http://www.gracemartinezbooks.com'),
 ('Jackson', 'Parker', '1995-12-12', 'Jackson Parker writes horror novels and short stories.', 'http://www.jacksonparkerwrites.com'),
 ('Lily', 'Robinson', '1979-07-15', 'Lily Robinson is an acclaimed novelist and essayist.', 'http://www.lilyrobinsonwrites.com'),
-('Elijah', 'Brooks', '1984-10-06', 'Elijah Brooks writes speculative fiction with elements of the supernatural.', 'http://www.elijahbrookswrites.com')
+('Elijah', 'Brooks', '1984-10-06', 'Elijah Brooks writes speculative fiction with elements of the supernatural.', 'http://www.elijahbrookswrites.com');
 
 
 
@@ -113,14 +111,6 @@ INSERT INTO Writter (first_name, last_name, date_of_birth, overview, website) VA
 INSERT INTO Genres (genre_name) VALUES
 ('Action'), ('Comedy'), ('Drama'), ('Thriller'), ('Sci-Fi'), ('Horror'), ('Romance');
 
-CREATE TABLE Actors (
-    actor_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    date_of_birth DATE NOT NULL,
-    website VARCHAR(100) NOT NULL,
-    actor_overview TEXT NOT NULL
-);
 
 INSERT INTO Actors (first_name, last_name, date_of_birth, website, actor_overview) VALUES
 ('John', 'Doe', '1985-05-15', 'http://www.johndoeactor.com', 'John Doe is a versatile actor known for his roles in both drama and action films.'),
@@ -166,50 +156,47 @@ INSERT INTO Actors (first_name, last_name, date_of_birth, website, actor_overvie
 
 -- Movies
 INSERT INTO Movies (title, release_year, duration_minutes, rating, overview, director_id, genre_id) VALUES
-('Inception', 2010, 148, 8.8, 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Godfather', 1972, 175, 9.2, 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Dark Knight', 2008, 152, 9.0, 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Pulp Fiction', 1994, 154, 8.9, 'The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Schindlers List', 1993, 195, 8.9, 'In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Fight Club', 1999, 139, 8.8, 'An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Forrest Gump', 1994, 142, 8.8, 'The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Matrix', 1999, 136, 8.7, 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Lord of the Rings: The Return of the King', 2003, 201, 8.9, 'Gandalf and Aragorn lead the World of Men against Saurons army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Silence of the Lambs', 1991, 118, 8.6, 'A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Interstellar', 2014, 169, 8.6, 'A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Gladiator', 2000, 155, 8.5, 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Prestige', 2006, 130, 8.5, 'After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Lion King', 1994, 88, 8.5, 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Memento', 2000, 113, 8.4, 'A man with short-term memory loss attempts to track down his wifes murderer.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Departed', 2006, 151, 8.5, 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Whiplash', 2014, 106, 8.5, 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Parasite', 2019, 132, 8.6, 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Green Mile', 1999, 189, 8.6, 'The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Inglourious Basterds', 2009, 153, 8.3, 'In Nazi-occupied France, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner\'s vengeful plans for the same.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Shawshank Redemption', 1994, 142, 9.3, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Avengers', 2012, 143, 8.0, 'Earths mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Jurassic Park', 1993, 127, 8.2, 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Titanic', 1997, 195, 7.8, 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Wolf of Wall Street', 2013, 180, 8.2, 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption, and the federal government.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Mad Max: Fury Road', 2015, 120, 8.1, 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Braveheart', 1995, 178, 8.3, 'Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Avatar', 2009, 162, 7.8, 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Saving Private Ryan', 1998, 169, 8.6, 'Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Social Network', 2010, 120, 7.7, 'Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Django Unchained', 2012, 165, 8.4, 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation-owner in Mississippi.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Big Lebowski', 1998, 117, 8.1, 'Jeff "The Dude" Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Shining', 1980, 146, 8.4, 'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('A Beautiful Mind', 2001, 135, 8.2, 'After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Pianist', 2002, 150, 8.5, 'A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Goodfellas', 1990, 146, 8.7, 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Slumdog Millionaire', 2008, 120, 8.0, 'A Mumbai teenager reflects on his life after being accused of cheating on the Indian version of "Who Wants to Be a Millionaire?".', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Black Panther', 2018, 134, 7.3, 'TChalla, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country\'s past.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('La La Land', 2016, 128, 8.0, 'While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('The Grand Budapest Hotel', 2014, 99, 8.1, 'A writer encounters the owner of an aging high-class hotel and recounts his story of working as a lobby boy in the hotels glorious years under an exceptional concierge.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7))),
-('Guardians of the Galaxy', 2014, 121, 8.0, 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.', FLOOR(1 + (RAND() * 50)), FLOOR(1 + (RAND() * 7)));
-
--- Continue with additional insert statements to complete 200 rows.
-
+('Inception', 2010, 148, 8.8, 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Godfather', 1972, 175, 9.2, 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Dark Knight', 2008, 152, 9.0, 'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Pulp Fiction', 1994, 154, 8.9, 'The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Schindlers List', 1993, 195, 8.9, 'In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Fight Club', 1999, 139, 8.8, 'An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Forrest Gump', 1994, 142, 8.8, 'The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Matrix', 1999, 136, 8.7, 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Lord of the Rings: The Return of the King', 2003, 201, 8.9, 'Gandalf and Aragorn lead the World of Men against Saurons army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Silence of the Lambs', 1991, 118, 8.6, 'A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Interstellar', 2014, 169, 8.6, 'A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Gladiator', 2000, 155, 8.5, 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Prestige', 2006, 130, 8.5, 'After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Lion King', 1994, 88, 8.5, 'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Memento', 2000, 113, 8.4, 'A man with short-term memory loss attempts to track down his wifes murderer.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Departed', 2006, 151, 8.5, 'An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Whiplash', 2014, 106, 8.5, 'A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student\'s potential.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Parasite', 2019, 132, 8.6, 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Green Mile', 1999, 189, 8.6, 'The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Inglourious Basterds', 2009, 153, 8.3, 'In Nazi-occupied France, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner\'s vengeful plans for the same.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Shawshank Redemption', 1994, 142, 9.3, 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Avengers', 2012, 143, 8.0, 'Earths mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Jurassic Park', 1993, 127, 8.2, 'During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Titanic', 1997, 195, 7.8, 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Wolf of Wall Street', 2013, 180, 8.2, 'Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption, and the federal government.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Mad Max: Fury Road', 2015, 120, 8.1, 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Braveheart', 1995, 178, 8.3, 'Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Avatar', 2009, 162, 7.8, 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Saving Private Ryan', 1998, 169, 8.6, 'Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Social Network', 2010, 120, 7.7, 'Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, but is later sued by two brothers who claimed he stole their idea.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Django Unchained', 2012, 165, 8.4, 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation-owner in Mississippi.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Big Lebowski', 1998, 117, 8.1, 'Jeff "The Dude" Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Shining', 1980, 146, 8.4, 'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('A Beautiful Mind', 2001, 135, 8.2, 'After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Pianist', 2002, 150, 8.5, 'A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Goodfellas', 1990, 146, 8.7, 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Slumdog Millionaire', 2008, 120, 8.0, 'A Mumbai teenager reflects on his life after being accused of cheating on the Indian version of "Who Wants to Be a Millionaire?".', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Black Panther', 2018, 134, 7.3, 'TChalla, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country\'s past.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('La La Land', 2016, 128, 8.0, 'While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('The Grand Budapest Hotel', 2014, 99, 8.1, 'A writer encounters the owner of an aging high-class hotel and recounts his story of working as a lobby boy in the hotels glorious years under an exceptional concierge.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7))),
+('Guardians of the Galaxy', 2014, 121, 8.0, 'A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.', FLOOR(1 + (RAND() * 49)), FLOOR(1 + (RAND() * 7)));
 
 
 -- Insert Movie-Actor relations
@@ -269,16 +256,16 @@ INSERT INTO MovieActors (movie_id, actor_id) VALUES
 (23,3),
 (24,2),
 (25,1),
-(26,0),
+(26,31),
 (27,26),
 (28,27),
 (29,28),
 (30,29),
-(31,30)
+(31,30);
 
 
 -- Insert Movie-Actor relations
-INSERT INTO MovieWritters (movie_id, writter_id) VALUES
+INSERT INTO MovieWriters (movie_id, writer_id) VALUES
 (1,1),
 (2,2),
 (3,3),
@@ -334,12 +321,12 @@ INSERT INTO MovieWritters (movie_id, writter_id) VALUES
 (23,3),
 (24,2),
 (25,1),
-(26,0),
+(26,3),
 (27,26),
 (28,27),
 (29,28),
 (30,29),
-(31,30)
+(31,30);
 
 INSERT INTO Users (username, email, password) VALUES
 ('john_doe', 'john.doe@example.com', '$2y$10$KqUQ3bTjLBONExY4E/WIeOXP3OmhyNhQ8tQZaU2FeJzyYhBzW1.a2'),
@@ -441,10 +428,10 @@ INSERT INTO UserPreferenceActors( user_id, actor_id) VALUES
 (28,28),
 (29,29),
 (30,30),
-(31,31)
+(31,31);
 
 
-INSERT INTO UserPreferenceWritters( user_id, writter_id) VALUES 
+INSERT INTO UserPreferenceWriters( user_id, writer_id) VALUES 
 (1,25),
 (2,24),
 (3,23),
@@ -494,30 +481,10 @@ INSERT INTO UserPreferenceWritters( user_id, writter_id) VALUES
 (28,28),
 (29,29),
 (30,30),
-(31,31)
+(31,31);
 
 
 INSERT INTO UserPreferenceGenre( user_id, genre_id) VALUES 
-(1,25),
-(2,24),
-(3,23),
-(4,22),
-(5,21),
-(6,20),
-(7,19),
-(8,18),
-(9,17),
-(10,16),
-(11,15),
-(12,14),
-(13,13),
-(14,12),
-(15,11),
-(16,10),
-(17,9),
-(18,8),
-(19,7),
-(20,6),
 (1,1),
 (2,2),
 (3,3),
@@ -525,26 +492,27 @@ INSERT INTO UserPreferenceGenre( user_id, genre_id) VALUES
 (5,5),
 (6,6),
 (7,7),
-(8,8),
-(9,9),
-(10,10),
-(11,11),
-(12,12),
-(14,14),
-(15,15),
-(16,16),
-(17,17),
-(18,18),
-(19,19),
-(20,20),
-(21,21),
-(22,22),
-(23,23),
-(24,24),
-(25,25),
-(26,26),
-(27,27),
-(28,28),
-(29,29),
-(30,30),
-(31,31)
+(8,1),
+(9,2),
+(10,3),
+(11,3),
+(12,5),
+(13,6),
+(14,7),
+(15,4),
+(16,3),
+(17,3),
+(18,2),
+(19,1),
+(20,1),
+(21,1),
+(22,2),
+(23,3),
+(24,4),
+(25,5),
+(26,6),
+(27,7),
+(28,7),
+(29,7),
+(30,3),
+(31,7);
