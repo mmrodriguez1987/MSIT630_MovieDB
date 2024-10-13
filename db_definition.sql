@@ -12,18 +12,18 @@ CREATE TABLE  Directors (
      first_name VARCHAR(255) NOT NULL,
      last_name VARCHAR(255) NOT NULL,
 	 date_of_birth DATE NOT NULL,
-     overview TEXT,
-     website VARCHAR(255) 
+     overview TEXT, -- a little description of the director's work
+     website VARCHAR(255) -- Director's Website
 );
 
--- Table: Writters
-CREATE TABLE  Writter (
-	 writter_id INT AUTO_INCREMENT PRIMARY KEY,
+-- Table: Writers
+CREATE TABLE  Writer (
+	 writer_id INT AUTO_INCREMENT PRIMARY KEY,
      first_name VARCHAR(255) NOT NULL,
      last_name VARCHAR(255) NOT NULL,
      date_of_birth DATE NOT NULL,
-     overview TEXT,
-     website VARCHAR(255) 
+     overview TEXT, -- a little description of the Writer's work
+     website VARCHAR(255) -- Writer's Website
 );
 
 -- Table: Genres
@@ -52,8 +52,8 @@ CREATE TABLE Actors (
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     date_of_birth DATE NOT NULL,
-    website VARCHAR(100),
-    actor_overview TEXT
+    website VARCHAR(100), -- Actor's Website
+    actor_overview TEXT -- Little description about the Actor's life
 );
 
 -- Table: Users (1-to-1 with UserProfiles)
@@ -83,13 +83,13 @@ CREATE TABLE MovieActors (
     FOREIGN KEY (actor_id) REFERENCES Actors(actor_id)
 );
 
--- Many-to-Many Relationshipos Movies with Writters: Many Movies can have many directors
-CREATE TABLE MovieWritters (
+-- Many-to-Many Relationshipos Movies with Writers: Many Movies can have many directors
+CREATE TABLE MovieWriters (
 	movie_id INT,
-    writter_id INT,
-    PRIMARY KEY (movie_id, writter_id),
+    writer_id INT,
+    PRIMARY KEY (movie_id, writer_id),
     FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
-    FOREIGN KEY (writter_id) REFERENCES Writter(writter_id)
+    FOREIGN KEY (writer_id) REFERENCES Writer(writer_id)
 );
 
 -- Table User Preferences by Actors
@@ -101,13 +101,13 @@ CREATE TABLE UserPreferenceActors (
     FOREIGN KEY (actor_id) REFERENCES Actors(actor_id)    
 );
 
--- Table User Preferences by Writter
-CREATE TABLE UserPreferenceWritters (
+-- Table User Preferences by Writer
+CREATE TABLE UserPreferenceWriters (
     user_id int,
-    writter_id int,
-    PRIMARY KEY (user_id, writter_id),
+    writer_id int,
+    PRIMARY KEY (user_id, writer_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (writter_id) REFERENCES Writter(writter_id)    
+    FOREIGN KEY (writer_id) REFERENCES Writer(writer_id)    
 );
 
 -- Table User Preferences by Genre
